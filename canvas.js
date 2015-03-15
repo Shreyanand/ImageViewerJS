@@ -23,10 +23,13 @@ if (file.type.match(imageType)) {
 			  pic.addEventListener("load",draw,false);
 			  }
  reader.readAsDataURL(file); 
+ document.getElementById('mainicon').style.visibility ="hidden";
+ document.getElementById('canvas').style.border = "4px solid black ";
+ document.body.style.backgroundImage = "url(Icons/h.png)";
 } 
 else 
-  alert( "File not supported!");
-document.getElementById('mainicon').style.visibility ="hidden"	;
+  {alert( "File not supported!");}
+	
 });
 	
 	
@@ -130,9 +133,12 @@ function fullscreen(){
 	x.height = window.innerHeight-5;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 	}
+
+var toggle = true ;
 function grayscale(){
 	var imgData = ctx.getImageData(0,0,x.width,x.height);
 	var d = imgData.data
+	if(toggle){
 	for (var i=0; i< d.length; i+=4) {
     var r = d[i];
     var g = d[i+1];
@@ -142,7 +148,16 @@ function grayscale(){
     var v = 0.2126*r + 0.7152*g + 0.0722*b;
     d[i] = d[i+1] = d[i+2] = v;
 	}
+	
 	ctx.putImageData(imgData,0,0);
+	toggle = false;
+	}
+	else{
+	ctx.clearRect(0,0,x.width,x.height);
+	ctx.drawImage(pic,0,0,x.width,x.height);
+	toggle = true;
+	}
+	
   }
 
  window.addEventListener("load",dofirst,false);

@@ -7,17 +7,17 @@
 	margin-top: 0px;
 }
 body{
-	background-image:url(Icons/yel.jpg);
+	background-image:url(Icons/g.jpg);
 	padding-top:70px;
+	background-repeat:repeat-x;
 	}
 section{ display:block;}
 nav{
 	position:fixed;
 	margin:0px;
 	display:block;
-	position:fixed;
     height:68px;
-    width: 200%;
+    width: 100%;
     top:0;
     left:0;
 }
@@ -30,39 +30,37 @@ nav{
 #toolbar{
 	
 	background:#FF0;
-	border: 2px solid Red;
-	border
-	width: 200%;
 	height: 68px;
+	border: black solid 1px;
 	box-shadow:#999 7px 7px 7px;
-	background:-webkit-linear-gradient(left,#FF0,#F00);
+	background:-webkit-linear-gradient(left,#FF0,#F96);
 	border-radius: 10px;
+	width:200%
 }
 #toolbar_effects{
 	background-color:#FF0;
 	height: 68px;
-	border: 2px solid Red;
-	width: 1350px;
+	border: black solid 1px;
 	box-shadow:#999 7px 7px 7px;
-	background:-webkit-linear-gradient(left,#FF0,#F00);
+	background:-webkit-linear-gradient(left,#FF0,#F96);
 	border-radius: 10px;
+	width:1350px;
 }
 
 .s{
-	background-color:#F06;
+	background-color:#17F04E;
 	border: 2px #000000;
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-top:9px;
 	margin-bottom:30px;
 	padding: 7 px;
-	
 	border-radius: 10px;
 }
 .s:hover{opacity:0.7;}
 
 #prev{
-	background-color:#F06;
+	background-color:#17F04E;
 	border: 2px #000000;
 	margin-left: 20px;
 	margin-right: 2px;
@@ -73,7 +71,7 @@ nav{
 	border-radius: 10px;
 }
 #next{
-	background-color:#F06;
+	background-color:#17F04E;
 	border: 2px #000000;
 	margin-left: 2px;
 	margin-right: 20px;
