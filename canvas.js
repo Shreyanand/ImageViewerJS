@@ -26,13 +26,14 @@ if (file.type.match(imageType)) {
  document.getElementById('mainicon').style.visibility ="hidden";
  document.getElementById('canvas').style.border = "4px solid black ";
  document.body.style.backgroundImage = "url(Icons/h.png)";
+ document.getElementById('ff').style.visibility ="hidden";
 } 
 else 
   {alert( "File not supported!");}
 	
 });
 	
-	
+	 
 	document.getElementById("fit_to_view").addEventListener("click",fit_to_view,false);
 	document.getElementById("original").addEventListener("click",original,false);
 	document.getElementById("zoom_in").addEventListener("click",zoomin,false);
@@ -44,6 +45,11 @@ else
 	document.getElementById("prev").addEventListener("click",function(){alert("To be Implemented")},false);
 	document.getElementById("next").addEventListener("click",function(){alert("To be Implemented")},false);
 	document.getElementById("grayscale").addEventListener("click",grayscale,false);
+	document.getElementById("red").addEventListener("change",regrbl,false);
+	document.getElementById("green").addEventListener("change",regrbl,false);
+	document.getElementById("blue").addEventListener("change",regrbl,false);
+	document.getElementById("bright").addEventListener("change",bright,false);
+	document.getElementById("Edit").addEventListener("click",edit,false);
 	
 	
 }
@@ -133,6 +139,11 @@ function fullscreen(){
 	x.height = window.innerHeight-5;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 	}
+function edit(){
+	
+	originimg = ctx.getImageData(0,0,x.width,x.height);
+	originimgData =originimg.data;
+	}
 
 var toggle = true ;
 function grayscale(){
@@ -145,7 +156,7 @@ function grayscale(){
     var b = d[i+2];
     // CIE luminance for the RGB
     // The human eye is bad at seeing red and blue, so we de-emphasize them.
-    var v = 0.2126*r + 0.7152*g + 0.0722*b;
+    var v = 0.2989 * r + 0.5870 * g + 0.1140 * b
     d[i] = d[i+1] = d[i+2] = v;
 	}
 	
@@ -159,5 +170,43 @@ function grayscale(){
 	}
 	
   }
+  
+  function regrbl(){
+	var d = originimgData;
+	var imgData = ctx.createImageData(x.width,x.height);
+	for (var i=0; i< d.length; i+=4) {
+    
+    imgData.data[i] = d[i] * document.getElementById("red").value;
+	imgData.data[i+1] = d[i+1]* document.getElementById("green").value;
+	imgData.data[i+2] = d[i+2]* document.getElementById("blue").value;
+	imgData.data[i+3] = d[i+3];
+	}
+	ctx.putImageData(imgData,0,0);
+	while(p1.firstChild){p1.removeChild(p1.firstChild);}
+	while(p2.firstChild){p2.removeChild(p2.firstChild);}
+	while(p3.firstChild){p3.removeChild(p3.firstChild);}
+	
+	document.getElementById("p1").appendChild( document.createTextNode(document.getElementById("red").value));
+	document.getElementById("p2").appendChild( document.createTextNode(document.getElementById("green").value));
+	document.getElementById("p3").appendChild( document.createTextNode(document.getElementById("blue").value));
+	
+}
+  
+ function bright(){
+	var d = originimgData;
+	var imgData = ctx.createImageData(x.width,x.height);
+
+	for (var i=0; i< d.length; i+=4) {
+		imgData.data[i] = d[i] * document.getElementById("bright").value;
+	imgData.data[i+1] = d[i+1] * document.getElementById("bright").value;
+	imgData.data[i+2] = d[i+2] * document.getElementById("bright").value;
+	imgData.data[i+3] = d[i+3];
+	}
+	
+	ctx.putImageData(imgData,0,0);
+	while(p4.firstChild){p4.removeChild(p4.firstChild);}
+	document.getElementById("p4").appendChild( document.createTextNode(document.getElementById("bright").value)); 
+	 } 
+  
 
  window.addEventListener("load",dofirst,false);

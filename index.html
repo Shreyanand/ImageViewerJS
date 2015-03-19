@@ -28,20 +28,34 @@
 <div id = "toolbar_effects">
 <input type="image" src="Icons/imageviewer.svg" width="50" height="50" id="Imageviewer2"class = "s">
 <input type="image" src="Icons/effect-grayscale.svg" width="50" height="50" id="grayscale"class = "s">
+<input type="image" src="Icons/RGB.svg" width="50" height="50" id="rgb"class = "s" >
+<input type="image" src="Icons/bright.svg" width="50" height="50" id="brightness"class = "s" >
+
+</div>
+<div id = "range_bars">
+<p>RED</p><p id ="p1"></p><input type="range" min="0.01" max="3.1" value="1" step="0.01" id = "red"  />
+<p>GREEN</p><p id ="p2"></p><input type="range" min="0.01" max="3.1" value="1" step="0.01" id = "green" />
+<p>BLUE</p><p id ="p3"></p><input type="range" min="0.01" max="3.1" value="1" step="0.01" id = "blue" />
+
+</div>
+<div id="brbar">
+<p>BRIGHTNESS</p><p id ="p4"></p><input type="range" min="0.01" max="3.1" value="1" step="0.01"id = "bright" />
 </div>
 
 </nav>
 <section>
 <input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen2"class = "s">
 
-<div id ="divimg">
+<div id ="divimg" >
 
 <label for = "myimg">
 <img   src="Icons/the boy3.png" id="mainicon">
 </label>
+
 <input type="file" id = "myimg" accept="image/*" style="display:none" >
 
 </div>
+<div id ="ff"><a href="funfacts.html"><input type="image" src="Icons/funfacts.png" width="350" height="68" id="funfacts" ></a></div>
 
 <div id="can">
 <center><canvas id="canvas" width="1000" height="800" ></canvas></center>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Fun Facts</title>
+<link href  ="funfacts.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript" src="slider.js"></script>
+
+</head>
+
+<body>
+<div class = "container">
+
+  <div id="first">
+        <h>WELCOME TO THE WORLD OF PIXELS!</h>
+        
+        <p style="font-size: 24px; color: #FF0">What are pixels?<br>Pixel is the smallest element of a picture that can be controlled. 'Pix' stands for picture and 'el' for element.</p>
+  
+        <p style="font-size: 10px; color: #FFF;"><img src="Icons/pixel.jpg" width="547" height="286"  alt=""/></p>
+        <p style="font-size: 24px; color: #FF0;">This picture has 450 pixels long width and 300 pixels long height so it has 300*450 = 135 thousand total number of pixels! <br>You must have heard that cameras have resolution in "MegaPixels". What that means is, the picture clicked by a 2 megaPixel camera will have 2 million pixels!</p>
+  </div>
+        
+        <div>
+          <h>CONTROLLING PIXEL VALUES</h>
+          <p style="color: #F00; font-size: 20px;">Yes we can control a million pixels :D Each pixel contains information about the color of that pixel. Now before we see how it stores that information let's understand how colors are made in a digital image.</p>
+          <p style="color: #03C; font-size: 20px;"><img src="Icons/mixing2.jpg" width="291" height="193"  alt=""/><img src="Icons/mixing.jpg" width="510" height="193"  alt=""/><img src="Icons/mixing3.jpg" width="247" height="194"  alt=""/></p>
+          <p id="para" style="color: #0F0; font-size: 20px;">As you can see in the image that when Red (R) ,Green (G) and BLUE (B) colors are mixed different colours are produced. Each of the color R,G,B can have 256 shades in a digital image. Each can have values from (0 to 255). Value 0 means that  the colour is not present and 255 means that color has its strongest shade. Now each Pixel has four components. Red Green and Blue values and lets forget the fourth one for now. For example, the value (255,0,0) will show the Red color. Green and blue have '0' values and red is present in its strongest shade with value '255'.</p>
+          <p style="color: #37CDFF; font-size: 20px;">Infact, mixing different shades of R G B can form 256*256*256 which is around 16.77 million colors! Now go back to the ImageViewer and open an image, click on edit icon , then click RGB icon and increase/ decrease each color! The sliders change the RGB values of all the pixels of the image. Increase red to highest and green,blue to lowest to see the example given above.</p>
+  </div>
+
+
+<div>
+	<p>
+	  <h style="color: #F14901">CONTROLLING BRIGHTNESS</h>
+    </p>
+	<p style="color: #FFB; font-size: 24px;"> Brighter colors have higher values for their red, green, and blue   components.    It follows naturally that we can alter the brightness of   an image by increasing or decreasing the color components of each pixel.</p>
+	<p style="color: #FFC"><img src="Icons/bright.png" width="1053" height="183"  alt=""/></p>
+	<p style="color: #FF3; font-size: 24px;">Now you can go to image viewer and try out the brightness adjuster. Understanding how it works is very simple, evry RGB component of each of the pixels is increased to give a brighter image and decreased to give a darker image.</p>
+	<p>If you don't believe me, then just open the RGB adjusters again and increase all of them by the same amount, It should give the same effect as the brightness adjuster does :)</p>
+</div>
+</div>
+
+<div id ="buttons" >
+   <p>
+     <input name="PREVIOUS" type="button" id="PREV"  value="PREV" >
+     <input name="NEXT" type="button" id="NEXT"  value="NEXT" >
+   </p>
+   <p><a href="index.html">GO BACK TO IMAGE VIEWER</a></p>
+</div>
+
+</body>
+</html>

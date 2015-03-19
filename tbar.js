@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$("#toolbar_effects").hide();
 	$("#Fullscreen2").hide();
+	$("#range_bars").hide();
+	$("#brbar").hide();
     
 	$("#Edit").click(function() {
     $("#toolbar").fadeOut(1,function(){$("#toolbar_effects").fadeIn(250);});
@@ -20,7 +22,14 @@ $(document).ready(function() {
 		 $("#Fullscreen2").hide();
 		 $("body").css( "padding-top","70px"); 
     });
-	
+	$("#rgb").click(function() {
+		
+		$("#range_bars").toggle();
+		});
+	$("#brightness").click(function() {
+		
+		$("#brbar").toggle();
+		});
 });
 	
 	

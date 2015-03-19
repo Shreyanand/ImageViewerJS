@@ -9,7 +9,7 @@
 body{
 	background-image:url(Icons/g.jpg);
 	padding-top:70px;
-	background-repeat:repeat-x;
+	
 	}
 section{ display:block;}
 nav{
@@ -87,9 +87,16 @@ nav{
 	margin-left:32%;
 	
 }
+#ff{
+	position: fixed;
+	margin-top:36%;
+	margin-left:34%;
+	
+}
 #mainicon:hover{
 	background-color:transparent;
 	opacity: 0.4;
+	cursor:pointer;
 	}
 #can{
 	display:block
