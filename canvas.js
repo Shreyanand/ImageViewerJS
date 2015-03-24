@@ -2,12 +2,10 @@ function dofirst (){
 	
 	x = document.getElementById("canvas");
 	ctx = x.getContext('2d');
-	scaley = scalex = 1.0;
+	scaley = 1.0; scalex = 1.0;
 	angleInDegrees = 0;
-
 	var fileInput = document.getElementById('myimg');
     
-	
 	
 	fileInput.addEventListener('change', function(e) {
       var file = fileInput.files[0];
@@ -53,26 +51,29 @@ else
 	
 	
 }
+function draw () {
+	 
+	natural_w = x.width = this.width;
+	natural_h = x.height = this.height ;
+	ctx.drawImage(pic,0,0,x.width,x.height);
+	
+}
 function zoomin(){
-	if(x.width < 6000){
-	x.width /= scalex;
-	x.height /= scaley;
-	scalex += 0.1;
-	scaley += 0.1;
-	x.width *= scalex;
-	x.height *=scaley;
+	if(scalex <= 10 && scaley <=10){
+	scalex += 0.05;
+	scaley += 0.05;
+	x.width = natural_w*scalex;
+	x.height = natural_h*scaley;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 	}
 	
 	}
 function zoomout(){
-	if(x.height > 300){
-	x.width /= scalex;
-	x.height /= scaley;
-	scalex -= 0.1;
-	scaley -= 0.1;
-	x.width *= scalex;
-	x.height *=scaley;
+	if(scalex >= 0.05 && scaley >= 0.05){
+	scalex -= 0.05;
+	scaley -= 0.05;
+	x.width = natural_w*scalex;
+	x.height = natural_h*scaley;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 	}
 	
@@ -83,18 +84,18 @@ function antiC(){// DOES NOT WORK WITH FIT TO VIEW ,ONLY NATURAL Width,Height. D
         angleInDegrees = 270;
     else
         angleInDegrees-=90;
+
     drawRotated(angleInDegrees);
 	
 	}
 function C(){
 	  angleInDegrees+=90 % 360;
     drawRotated(angleInDegrees);
+	
 	}
 	
 function drawRotated(degrees){
-     
-	 
-    var rad = degrees*Math.PI/180;
+     var rad = degrees*Math.PI/180;
     ctx.clearRect(0,0,x.width,x.height);
 	//var a = 2*x.height ;
 	//var b = 2*x.width;
@@ -110,33 +111,30 @@ function drawRotated(degrees){
 	ctx.drawImage(pic,-natural_w/2,-natural_h/2);
 	//ctx.restore();
 	
-   
 }
 	
-function draw () {
-	 
-	natural_w = x.width = this.width;
-	natural_h = x.height = this.height ;
-	ctx.drawImage(pic,0,0,x.width,x.height);
-	
-}
+
 
 function fit_to_view(){
 	x.width = window.innerWidth - 75;
 	x.height = window.innerHeight- 5;
-	
+	scalex = x.width/natural_w;
+	scaley = x.height/natural_h;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 }
 function original(){
 	x.width = natural_w;
 	x.height = natural_h;
 	ctx.drawImage(pic,0,0,x.width,x.height);
+	scalex = 1.0; scaley = 1.0;
 	
 }
 function fullscreen(){
 	document.body.style.paddingTop ="0px";
 	x.width = window.innerWidth-150;
 	x.height = window.innerHeight-5;
+	scalex = x.width/natural_w;
+	scaley = x.height/natural_h;
 	ctx.drawImage(pic,0,0,x.width,x.height);
 	}
 function edit(){
