@@ -6,7 +6,6 @@ function dofirst (){
 	angleInDegrees = 0;
 	var fileInput = document.getElementById('myimg');
     
-	
 	fileInput.addEventListener('change', function(e) {
       var file = fileInput.files[0];
 	  var imageType = /image.*/;
@@ -48,6 +47,7 @@ else
 	document.getElementById("blue").addEventListener("change",regrbl,false);
 	document.getElementById("bright").addEventListener("change",bright,false);
 	document.getElementById("Edit").addEventListener("click",edit,false);
+	document.getElementById("save").addEventListener("click",save,false);
 	
 	
 }
@@ -205,6 +205,24 @@ function grayscale(){
 	while(p4.firstChild){p4.removeChild(p4.firstChild);}
 	document.getElementById("p4").appendChild( document.createTextNode(document.getElementById("bright").value)); 
 	 } 
-  
+  function save(){
+	  var dataURL = x.toDataURL();
+	  download(dataURL, 'image.png');
+	  
+	    }
+	function download( text,filename) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', text);
+    pom.setAttribute('download', filename);
 
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+}
+	
  window.addEventListener("load",dofirst,false);
