@@ -34,6 +34,7 @@ nav{
 	border: black solid 1px;
 	box-shadow:#999 7px 7px 7px;
 	background:-webkit-linear-gradient(left,#FF0,#F96);
+	background:-Moz-linear-gradient(left,#FF0,#F96);
 	border-radius: 10px;
 	width:200%
 }
@@ -43,6 +44,7 @@ nav{
 	border: black solid 1px;
 	box-shadow:#999 7px 7px 7px;
 	background:-webkit-linear-gradient(left,#FF0,#F96);
+	background:-Moz-linear-gradient(left,#FF0,#F96);
 	border-radius: 10px;
 	width:1350px;
 }
@@ -107,7 +109,26 @@ nav{
 	background-color: transparent;
 	display: block;
 	text-align:center;
-	
 }
 
-
+#filter_table{
+	width: 300px;
+	height: 200px;
+	position:absolute;
+	z-index: 10;
+	margin-left: 15%;
+	margin-top:10%;
+	border: white solid 1px;
+	background-color:#000;
+	
+	}
+td {border: black solid 1px;
+text-align:center;
+padding-top:!important;
+height:50px;}
+caption {font-family: myFirstFont; font-size:28px; color:#F00}
+.e{ height: 50px; font-family: myFirstFont; font-size:28px; color:#FF3; background-color:#000;}
+@font-face {
+    font-family: myFirstFont;
+    src:url(XPLOR%20Bold-Regular.otf);
+}

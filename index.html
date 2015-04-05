@@ -30,6 +30,8 @@
 <input type="image" src="Icons/effect-grayscale.svg" width="50" height="50" id="grayscale"class = "s">
 <input type="image" src="Icons/RGB.svg" width="50" height="50" id="rgb"class = "s" >
 <input type="image" src="Icons/bright.svg" width="50" height="50" id="brightness"class = "s" >
+<input type="image" src="Icons/negative.svg" width="50" height="50" id="negative"class = "s">
+<input type="image" src="Icons/mask.png" width="50" height="50" id="mask"class = "s" >
 <input type="image" src="Icons/save.svg" width="50" height="50" id="save"class = "s" >
 
 </div>
@@ -45,11 +47,36 @@
 
 </nav>
 <section>
-<input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen2"class = "s">
+<p>
+  <input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen2"class = "s">
+</p>
+<table id = "filter_table" align="center">
+  <caption >
+    ENTER FILTER/MASK VALUES
+    </caption>
+  <tr>
+    <td><input type="number" value="0" step="any" id="e0" class = "e"></td>
+    <td><input type="number" value="-1" step="any"id="e1" class = "e"></td>
+    <td><input type="number" value="0" step="any"id="e2" class = "e"></td>
+  </tr>
+  <tr>
+    <td><input type="number" value="-1" step="any"id="e3" class = "e"></td>
+    <td><input type="number" value="5" step="any"id="e4" class = "e"></td>
+    <td><input type="number" value="-1" step="any"id="e5" class = "e"></td>
+  </tr>
+  <tr>
+    <td><input type="number" value="0" step="any"id="e6" class = "e"></td>
+    <td><input type="number" value="-1" step="any"id="e7" class = "e"></td>
+    <td><input type="number" value="0" step="any"id="e8" class = "e"></td>
+  </tr>
+  <tr>
+    <td colspan="3"> <input type="submit" value = "Apply" id ="apply" style="height:50px; width:100%;"></td>
+  </tr>
+</table>
 
 <div id ="divimg" >
-
-<label for = "myimg">
+  
+  <label for = "myimg">
 <img   src="Icons/the boy3.png" id="mainicon">
 </label>
 
@@ -61,6 +88,7 @@
 <div id="can">
 <center><canvas id="canvas" width="1000" height="800" ></canvas></center>
 </div>
+
 
 </section>
 </body>

@@ -5,7 +5,9 @@ function dofirst (){
 	scaley = 1.0; scalex = 1.0;
 	angleInDegrees = 0;
 	var fileInput = document.getElementById('myimg');
-    
+    count = 0;
+	
+	
 	fileInput.addEventListener('change', function(e) {
       var file = fileInput.files[0];
 	  var imageType = /image.*/;
@@ -39,15 +41,17 @@ else
 	document.getElementById("Clock").addEventListener("click",C,false);
 	document.getElementById("Fullscreen").addEventListener("click",fullscreen,false);
 	document.getElementById("Fullscreen2").addEventListener("click",original,false);
-	document.getElementById("prev").addEventListener("click",function(){alert("To be Implemented")},false);
+	document.getElementById("prev").addEventListener("click",function(){alert(width)},false);
 	document.getElementById("next").addEventListener("click",function(){alert("To be Implemented")},false);
 	document.getElementById("grayscale").addEventListener("click",grayscale,false);
+	document.getElementById("negative").addEventListener("click",negative,false);
 	document.getElementById("red").addEventListener("change",regrbl,false);
 	document.getElementById("green").addEventListener("change",regrbl,false);
 	document.getElementById("blue").addEventListener("change",regrbl,false);
 	document.getElementById("bright").addEventListener("change",bright,false);
 	document.getElementById("Edit").addEventListener("click",edit,false);
 	document.getElementById("save").addEventListener("click",save,false);
+	document.getElementById("apply").addEventListener("click",mask,false);
 	
 	
 }
@@ -144,9 +148,19 @@ function edit(){
 	}
 
 var toggle = true ;
+function negative(){
+	var imgData = ctx.getImageData(0,0,x.width,x.height);
+	var d = imgData.data;
+	for (var i=0; i< d.length; i+=4) {
+    d[i] = 255 - d[i];
+   d[i+1] = 255 - d[i+1];
+   d[i+2] = 255 - d[i+2];
+	
+	}ctx.putImageData(imgData,0,0);
+}
 function grayscale(){
 	var imgData = ctx.getImageData(0,0,x.width,x.height);
-	var d = imgData.data
+	var d = imgData.data;
 	if(toggle){
 	for (var i=0; i< d.length; i+=4) {
     var r = d[i];
@@ -205,12 +219,11 @@ function grayscale(){
 	while(p4.firstChild){p4.removeChild(p4.firstChild);}
 	document.getElementById("p4").appendChild( document.createTextNode(document.getElementById("bright").value)); 
 	 } 
-  function save(){
+function save(){
 	  var dataURL = x.toDataURL();
 	  download(dataURL, 'image.png');
-	  
-	    }
-	function download( text,filename) {
+	 }
+function download( text,filename) {
     var pom = document.createElement('a');
     pom.setAttribute('href', text);
     pom.setAttribute('download', filename);
@@ -224,5 +237,62 @@ function grayscale(){
         pom.click();
     }
 }
+
+function mask(){
+	var val = new Array();
+	var table = document.getElementById("filter_table");
+    for(var i =0; i<9; i++){
+		val[i] = document.getElementById("e"+i).value;
+		}
+	convolute(val);
+}
+function convolute (weights) {
+  //alert(weights);
+  var side = 3;
+  var halfSide = 1;
+  var src = originimgData;
+  var sw = x.width;
+  var sh = x.height;
+  
+  ctx.clearRect(0,0,x.width,x.height);
+  // pad output by the convolution matrix
+  var w = sw;
+  var h = sh;
+  var output = ctx.createImageData(w, h);
+  var dst = output.data;
+  // go through the destination image pixels
+  //var alphaFac = opaque ? 1 : 0;
+  for (var y=0; y<h; y++) {
+    for (var z=0; z<w; z++) {
+      var sy = y;
+      var sx = z;
+      var dstOff = (y*w+z)*4;
+      // calculate the weighed sum of the source image pixels that
+      // fall under the convolution matrix
+      var r=0, g=0, b=0, a=0;
+      for (var cy=0; cy<side; cy++) {
+        for (var cx=0; cx<side; cx++) {
+          var scy = sy + cy - halfSide;
+          var scx = sx + cx - halfSide;
+          if (scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
+            var srcOff = (scy*sw+scx)*4;
+            var wt = weights[cy*side+cx];
+            r += src[srcOff] * wt;
+            g += src[srcOff+1] * wt;
+            b += src[srcOff+2] * wt;
+            a += src[srcOff+3] * wt;
+          }
+        }
+      }
+      dst[dstOff] = r;
+      dst[dstOff+1] = g;
+      dst[dstOff+2] = b;
+      dst[dstOff+3] = a ;
+    }
+  }
+  
+  ctx.putImageData(output,0,0);
+};
+	
 	
  window.addEventListener("load",dofirst,false);

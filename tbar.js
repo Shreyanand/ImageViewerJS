@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$("#Fullscreen2").hide();
 	$("#range_bars").hide();
 	$("#brbar").hide();
+	$("#filter_table").hide();
     
 	$("#Edit").click(function() {
     $("#toolbar").fadeOut(1,function(){$("#toolbar_effects").fadeIn(250);});
@@ -30,6 +31,15 @@ $(document).ready(function() {
 		
 		$("#brbar").toggle();
 		});
+	$("#mask").click(function() {
+	$("canvas").css("opacity","0.1");
+	$("#filter_table").show();
+	
+	});
+	$("#apply").click(function() {
+	$("canvas").css("opacity","1");
+	$("#filter_table").hide();
+	});
 });
 	
 	
