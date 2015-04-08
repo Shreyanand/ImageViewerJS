@@ -12,27 +12,27 @@
 <body>
 <nav>
 <div id = "toolbar">
-<input type="image" src="Icons/imageviewer.svg" width="50" height="50" id="Imageviewer" class = "s">
-<input type="image" src="Icons/edit.svg" width="50" height="50" id="Edit"class = "s">
-<input type="image" src="Icons/index.svg" width="50" height="50" id="fit_to_view"class = "s">
-<input type="image" src="Icons/original.svg" width="50" height="50" id="original"class = "s">
-<input type="image" src="Icons/zoomin.svg"width="50" height="50" id="zoom_in"class = "s">
-<input type="image" src="Icons/zoomout.svg"width="50" height="50" id="zoom_out"class = "s">
-<input type="image" src="Icons/object-rotate-left.svg"width="50" height="50" id="antiClock"class = "s">
-<input type="image" src="Icons/object-rotate-right.svg" width="50" height="50" id="Clock"class = "s">
-<input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen"class = "s">
-<input type="image" src="Icons/prev.svg"width="50" height="50" id="prev"class = "s">
-<input type="image" src="Icons/next.svg"width="50" height="50" id="next"class = "s">
+<input type="image" src="Icons/imageviewer.svg" width="50" height="50" id="Imageviewer" class = "s"title="Home">
+<input type="image" src="Icons/edit.svg" width="50" height="50" id="Edit"class = "s" title="Edit">
+<input type="image" src="Icons/index.svg" width="50" height="50" id="fit_to_view"class = "s" title="Fit to screen">
+<input type="image" src="Icons/original.svg" width="50" height="50" id="original"class = "s" title="Original">
+<input type="image" src="Icons/zoomin.svg"width="50" height="50" id="zoom_in"class = "s" title="Zoom in">
+<input type="image" src="Icons/zoomout.svg"width="50" height="50" id="zoom_out"class = "s"title="Zoom out">
+<input type="image" src="Icons/object-rotate-left.svg"width="50" height="50" id="antiClock"class = "s"title="Rotate anti-clockwise">
+<input type="image" src="Icons/object-rotate-right.svg" width="50" height="50" id="Clock"class = "s"title="Rotate clockwise">
+<input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen"class = "s"title="FullScreen">
+<input type="image" src="Icons/prev.svg"width="50" height="50" id="prev"class = "s" title="Previous">
+<input type="image" src="Icons/next.svg"width="50" height="50" id="next"class = "s" title="Next">
 </div>
 
 <div id = "toolbar_effects">
-<input type="image" src="Icons/imageviewer.svg" width="50" height="50" id="Imageviewer2"class = "s">
-<input type="image" src="Icons/effect-grayscale.svg" width="50" height="50" id="grayscale"class = "s">
-<input type="image" src="Icons/RGB.svg" width="50" height="50" id="rgb"class = "s" >
-<input type="image" src="Icons/bright.svg" width="50" height="50" id="brightness"class = "s" >
-<input type="image" src="Icons/negative.svg" width="50" height="50" id="negative"class = "s">
-<input type="image" src="Icons/mask.png" width="50" height="50" id="mask"class = "s" >
-<input type="image" src="Icons/save.svg" width="50" height="50" id="save"class = "s" >
+<input type="image" src="Icons/imageviewer.svg" width="50" height="50" id="Imageviewer2"class = "s" title="Home">
+<input type="image" src="Icons/effect-grayscale.svg" width="50" height="50" id="grayscale"class = "s" title="Grayscale">
+<input type="image" src="Icons/RGB.svg" width="50" height="50" id="rgb"class = "s" title="RGB controllers" >
+<input type="image" src="Icons/bright.svg" width="50" height="50" id="brightness"class = "s" title="Brightness controller" >
+<input type="image" src="Icons/negative.svg" width="50" height="50" id="negative"class = "s" title="Invert colours/negative">
+<input type="image" src="Icons/mask.png" width="50" height="50" id="mask"class = "s" title="Convolution input Matrix / MASK" >
+<input type="image" src="Icons/save.svg" width="50" height="50" id="save"class = "s" title="SAVE" >
 
 </div>
 <div id = "range_bars">
@@ -48,7 +48,7 @@
 </nav>
 <section>
 <p>
-  <input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen2"class = "s">
+  <input type="image" src="Icons/fullscreen.svg"width="50" height="50" id="Fullscreen2"class = "s" title="Exit Fullscreen">
 </p>
 <table id = "filter_table" align="center">
   <caption >
@@ -77,13 +77,13 @@
 <div id ="divimg" >
   
   <label for = "myimg">
-<img   src="Icons/the boy3.png" id="mainicon">
+<img   src="Icons/the boy3.png" id="mainicon" title="Open image">
 </label>
 
 <input type="file" id = "myimg" accept="image/*" style="display:none" >
 
 </div>
-<div id ="ff"><a href="funfacts.html"><input type="image" src="Icons/funfacts.png" width="350" height="68" id="funfacts" ></a></div>
+<div id ="ff"><a href="funfacts.html"><input type="image" src="Icons/funfacts.png" width="350" height="68" id="funfacts" title="funfacts" ></a></div>
 
 <div id="can">
 <center><canvas id="canvas" width="1000" height="800" ></canvas></center>
